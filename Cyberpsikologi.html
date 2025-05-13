@@ -1,23 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Permainan Daring dan Adiksi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Menambahkan Font Awesome -->
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
         .judulTengah {
             text-align: center;
-            font-size: 2em;
+            font-size: 2.5em;
             margin-top: 30px;
+            color: #4CAF50;
         }
 
         .isi {
-            max-width: 700px;
+            max-width: 800px;
             margin: 20px auto;
-            font-family: Arial, sans-serif;
+            font-size: 1.1em;
             line-height: 1.6;
             text-align: justify;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        .pertanyaan {
+            font-weight: bold;
+            cursor: pointer;
+            color: #4CAF50;
+            margin-top: 20px;
+            padding: 10px 6px; 
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between; /* teks kiri, ikon kanan */
+            align-items: center;
+        }
+
+        .jawaban {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: justify;
+        }
+
+        .pertanyaan:hover {
+            background-color: #f1f1f1;
+        }
+
+        .fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+
+        .open .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .sub-dropdown {
+            margin-top: 10px;
+            display: none;
+            padding-left: 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .sub-dropdown p {
+            margin: 10px 0;
+        }
+
     </style>
 </head>
 <body>
@@ -26,12 +90,70 @@
 
     <div class="isi">
         <p>
-            Permainan daring atau online game kini menjadi hiburan yang sangat populer, terutama di kalangan remaja. Meski membawa dampak positif seperti melatih strategi dan kerjasama, permainan daring juga berisiko menyebabkan adiksi atau kecanduan jika tidak dikontrol.
+            Adiksi game online semakin menjadi masalah global, dengan dampak negatif yang signifikan 
+            terhadap kesehatan mental, fisik, dan sosial penggunanya. Fenomena ini melibatkan ketergantungan 
+            yang berlebihan terhadap permainan daring, yang seringkali mengganggu aktivitas sehari-hari, hubungan sosial, 
+            serta produktivitas individu.
         </p>
-        <p>
-            Adiksi permainan daring dapat berdampak negatif pada kesehatan mental, fisik, dan kehidupan sosial seseorang. Oleh karena itu, penting untuk menjaga keseimbangan antara bermain dan aktivitas lain dalam kehidupan sehari-hari.
-        </p>
+
+        <div class="pertanyaan" onclick="toggleJawaban(this)">
+            Apa itu Adiksi Permainan Daring? 
+            <i class="fas fa-chevron-down"></i>
+        </div>
+
+
+        <div class="jawaban">
+            Adiksi permainan daring, atau game online addiction, adalah kondisi di mana seseorang merasa ketergantungan atau kecanduan terhadap permainan video yang dimainkan secara daring. Individu yang mengalami adiksi ini cenderung menghabiskan waktu yang berlebihan untuk bermain game, sering kali mengabaikan kewajiban lainnya seperti pekerjaan, sekolah, atau interaksi sosial. Adiksi game daring dapat menyebabkan dampak negatif bagi kesehatan mental, emosional, dan fisik, seperti gangguan tidur, stres, kecemasan, dan penurunan kualitas hubungan sosial. Pada tingkat yang lebih parah, adiksi ini bisa mengarah pada gangguan psikologis yang memerlukan penanganan profesional.
+        </div>
+
+        <div class="pertanyaan" onclick="toggleSubDropdown(this)">
+            Apa saja dampak dari adiksi permainan daring? 
+            <i class="fas fa-chevron-down"></i>
+        </div>
+
+        <div class="sub-dropdown">
+            <p>
+                Dampak dari adiksi permainan daring sangat bervariasi, tetapi beberapa di antaranya termasuk:
+                <ul>
+                    <li>Gangguan tidur dan kesehatan fisik.</li>
+                    <li>Penurunan kemampuan sosial dan hubungan interpersonal.</li>
+                    <li>Stres dan kecemasan akibat kurangnya kontrol atas waktu bermain.</li>
+                    <li>Pengaruh negatif terhadap kinerja akademik atau pekerjaan.</li>
+                </ul>
+            </p>
+        </div>
+
     </div>
+
+    <script>
+        function toggleJawaban(element) {
+            var jawaban = element.nextElementSibling; // Mengambil elemen jawaban setelah pertanyaan
+            var icon = element.querySelector('.fa-chevron-down');
+
+            // Toggle tampilan jawaban
+            if (jawaban.style.display === 'block') {
+                jawaban.style.display = 'none';
+                icon.classList.remove('open');
+            } else {
+                jawaban.style.display = 'block';
+                icon.classList.add('open');
+            }
+        }
+
+        function toggleSubDropdown(element) {
+            var subDropdown = element.nextElementSibling; // Mengambil sub-dropdown setelah pertanyaan
+            var icon = element.querySelector('.fa-chevron-down');
+
+            // Toggle tampilan sub-dropdown
+            if (subDropdown.style.display === 'block') {
+                subDropdown.style.display = 'none';
+                icon.classList.remove('open');
+            } else {
+                subDropdown.style.display = 'block';
+                icon.classList.add('open');
+            }
+        }
+    </script>
 
 </body>
 </html>
