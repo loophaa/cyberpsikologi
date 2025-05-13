@@ -105,12 +105,115 @@
     padding: 20px;
     text-align: justify;
 }
+.spanduk {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
+}
+
+.judul-kiri {
+    font-weight: bold;
+}
+
+.ikon-kanan a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+.ikon-tengah a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.ikon-kanan a:hover {
+    color: #d4ffd2;
+}
+.kontainer-interaksi {
+    margin-top: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;   /* kiri agak masuk */
+    padding-right: 20px;   /* kanan mepet */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    width: 95%;           /* hampir penuh */
+    max-width: none;      /* biar nggak dibatasi */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.like-section {
+    margin-bottom: 20px;
+}
+
+#likeBtn {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.komentar-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 80%; /* Lebar 80% dari container induk */
+    max-width: 800px; /* Menjaga lebar maksimal */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.komentar-section textarea {
+    width: 100%;
+    height: 120px; /* Perbesar tinggi textarea */
+    padding: 10px;
+    resize: vertical;
+    font-size: 16px;
+    text-align: justify; /* Justifikasi teks */
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.komentar-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: justify; /* Justifikasi teks */
+}
+
+.komentar-item button {
+    margin-top: 10px;
+    background-color: transparent;
+    border: none;
+    color: #e91e63;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 
 
     </style>
 </head>
-<body>
+    <body>
+    <div class="spanduk">
+    <div class="judul-kiri">F*ck YOU</div>
+    <div class="ikon-kanan">
+        jumlah visitor:""
+    </div>
+    </div>
+
     <!-- Judul -->
     <h1 class="judulTengah">Permainan Daring dan Adiksi</h1>
     <div class="isi">
@@ -216,8 +319,51 @@
             Ini adalah card kanan. Gunakan untuk menampilkan data tambahan, contoh kasus, atau kutipan menarik yang mendukung konten utama.
         </p>
     </div>
+
+
+    <div class="kontainer-interaksi">
+    <div class="like-section"> <!--dari sini sampe -->
+        <button id="likeBtn" onclick="toggleLike()">
+            ❤️ Suka (<span id="likeCount">0</span>)
+        </button>
+    </div>
+
+    <div class="komentar-section">
+        <h3>Komentar</h3>
+        <textarea id="komentarInput" placeholder="Tulis komentarmu..."></textarea>
+        <br>
+        <button onclick="kirimKomentar()">Kirim</button>
+
+        <div id="daftarKomentar">
+            <!-- Komentar akan muncul di sini -->
+            <div id="daftarKomentar">
+    <div class="komentar-item">
+        <strong>Steve</strong>
+        <p>biji</p>
+        <button class="like-btn" onclick="likeKomentar(this)">❤️ Like <span class="like-count">0</span></button>
+    </div>
+    <div class="komentar-item">
+        <strong>Steve</strong>
+        <p>masa bodo</p>
+        <button class="like-btn" onclick="likeKomentar(this)">❤️ Like <span class="like-count">0</span></button>
+    </div>
 </div>
 
+        </div>
+    </div>
+</div> <!-- sampe sini hanya place holder jdi fuk you-->
+
+
+</div>
+    <body>
+    <div class="spanduk">
+    <div class="judul-kiri">Ikuti Kami</div>
+    <div class="ikon-kanan">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    </div>
 
     <script>
         function drop1(element) {
@@ -235,6 +381,32 @@
         }
 
 
+<!-- fuck you ini hanya kode sementara-->
+    function kirimKomentar() {
+        const input = document.getElementById('komentarInput');
+        const komentar = input.value.trim();
+
+        if (komentar !== '') {
+            const komentarBaru = document.createElement('div');
+            komentarBaru.className = 'komentar-item';
+            
+            komentarBaru.innerHTML = `
+                <strong>Steve</strong>
+                <p>${komentar}</p>
+                <button onclick="likeKomentar(this)">❤️ Like <span class="like-count">0</span></button>
+            `;
+
+            document.getElementById('daftarKomentar').appendChild(komentarBaru);
+            input.value = '';
+        }
+    }
+
+    function likeKomentar(button) {
+        const countSpan = button.querySelector('.like-count');
+        let count = parseInt(countSpan.innerText);
+        count++;
+        countSpan.innerText = count;
+    }
     </script>
 
 </body>
