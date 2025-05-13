@@ -85,9 +85,8 @@
     </style>
 </head>
 <body>
-
+    <!-- Judul -->
     <h1 class="judulTengah">Permainan Daring dan Adiksi</h1>
-
     <div class="isi">
         <p>
             Adiksi game online semakin menjadi masalah global, dengan dampak negatif yang signifikan 
@@ -95,18 +94,22 @@
             yang berlebihan terhadap permainan daring, yang seringkali mengganggu aktivitas sehari-hari, hubungan sosial, 
             serta produktivitas individu.
         </p>
-
-        <div class="pertanyaan" onclick="toggleJawaban(this)">
+        <!-- pertanyaan pertama -->
+        <div class="pertanyaan" onclick="drop1(this)">
             Apa itu Adiksi Permainan Daring? 
             <i class="fas fa-chevron-down"></i>
         </div>
-
+        <!--jawanban pertama-->
 
         <div class="jawaban">
-            Adiksi permainan daring, atau game online addiction, adalah kondisi di mana seseorang merasa ketergantungan atau kecanduan terhadap permainan video yang dimainkan secara daring. Individu yang mengalami adiksi ini cenderung menghabiskan waktu yang berlebihan untuk bermain game, sering kali mengabaikan kewajiban lainnya seperti pekerjaan, sekolah, atau interaksi sosial. Adiksi game daring dapat menyebabkan dampak negatif bagi kesehatan mental, emosional, dan fisik, seperti gangguan tidur, stres, kecemasan, dan penurunan kualitas hubungan sosial. Pada tingkat yang lebih parah, adiksi ini bisa mengarah pada gangguan psikologis yang memerlukan penanganan profesional.
+            Adiksi permainan daring, atau game online addiction, adalah kondisi di mana seseorang merasa ketergantungan atau kecanduan terhadap 
+            permainan video yang dimainkan secara daring. Individu yang mengalami adiksi ini cenderung menghabiskan waktu yang berlebihan untuk 
+            bermain game, sering kali mengabaikan kewajiban lainnya seperti pekerjaan, sekolah, atau interaksi sosial. Adiksi game daring dapat 
+            menyebabkan dampak negatif bagi kesehatan mental, emosional, dan fisik, seperti gangguan tidur, stres, kecemasan, dan penurunan kualitas 
+            hubungan sosial. Pada tingkat yang lebih parah, adiksi ini bisa mengarah pada gangguan psikologis yang memerlukan penanganan profesional.
         </div>
 
-        <div class="pertanyaan" onclick="toggleSubDropdown(this)">
+        <div class="pertanyaan" onclick="drop1(this)">
             Apa saja dampak dari adiksi permainan daring? 
             <i class="fas fa-chevron-down"></i>
         </div>
@@ -126,7 +129,7 @@
     </div>
 
     <script>
-        function toggleJawaban(element) {
+        function drop1(element) {
             var jawaban = element.nextElementSibling; // Mengambil elemen jawaban setelah pertanyaan
             var icon = element.querySelector('.fa-chevron-down');
 
@@ -140,19 +143,7 @@
             }
         }
 
-        function toggleSubDropdown(element) {
-            var subDropdown = element.nextElementSibling; // Mengambil sub-dropdown setelah pertanyaan
-            var icon = element.querySelector('.fa-chevron-down');
 
-            // Toggle tampilan sub-dropdown
-            if (subDropdown.style.display === 'block') {
-                subDropdown.style.display = 'none';
-                icon.classList.remove('open');
-            } else {
-                subDropdown.style.display = 'block';
-                icon.classList.add('open');
-            }
-        }
     </script>
 
 </body>
